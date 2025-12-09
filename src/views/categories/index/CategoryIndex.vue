@@ -32,7 +32,7 @@ import axios from 'axios'
 import baseUrl from '@/api_config.js'
 import { onMounted, ref } from 'vue'
 
-const categories = ref()
+const categories = ref([])
 
 const getAll = () => {
   axios

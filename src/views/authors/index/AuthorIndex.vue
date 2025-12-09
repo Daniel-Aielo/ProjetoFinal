@@ -34,7 +34,7 @@ import axios from 'axios'
 import baseUrl from '@/api_config.js'
 import { onMounted, ref } from 'vue'
 
-const authors = ref()
+const authors = ref([])
 
 const getAll = () => {
     axios
