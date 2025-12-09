@@ -35,15 +35,14 @@ const author = reactive({
 
 //..function to create a new category
 const update = () => {
-    axios.put(baseUrl + '/api/author/v1',
-        author
-    ).then((response) => {
-        alert("Autor(a) atualizado(a) com sucesso!")
-        router.push("/authors")
-    }).catch((error => {
-        //alert("Erro: " + error)
-        console.error(error)
-    }))
+    axios.put(`${baseUrl}/api/author/v1/${author.id}`, author)
+        .then(() => {
+            alert("Autor(a) atualizado(a) com sucesso!")
+            router.push("/authors")
+        }).catch(error => {
+            console.error(error)
+            alert("Erro ao atualizar o(a) autor(a).")
+        })
 }
 
 onMounted(() => {

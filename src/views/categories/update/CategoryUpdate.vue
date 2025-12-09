@@ -28,15 +28,14 @@ const category = reactive({
 
 //..function to create a new category
 const update = () => {
-    axios.put(baseUrl + '/api/category/v1',
-        category
-    ).then((response) => {
-        alert("Categoria Atualizada com Sucesso!")
-        router.push("/categories")
-    }).catch((error => {
-        //alert("Erro: " + error)
-        console.error(error)
-    }))
+    axios.put(`${baseUrl}/api/category/v1/${category.id}`, category)
+        .then(() => {
+            alert("Categoria Atualizada com Sucesso!")
+            router.push("/categories")
+        }).catch(error => {
+            console.error(error)
+            alert("Erro ao atualizar a categoria.")
+        })
 }
 
 onMounted(() => {
